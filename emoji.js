@@ -4,8 +4,8 @@ const fun_list = "👾,🍀,🥑,⛰️ ,🪂,🍺,👨🏻‍🌾,🐢,🐼,�
 const activity_list = '🎨,🦮,📚,✍️ ,🎸,🛹,🏃🏻‍♂️'.split(',')
 const getRandom = arr => arr[arr.length * Math.random() | 0]
 const date = new Date()
-// const now = +`${date.getHours()}${date.getMinutes()<10?'0':''}${date.getMinutes()}`
-now=1300
+const now = +`${date.getHours()}${date.getMinutes()<10?'0':''}${date.getMinutes()}`
+// now=1910
 
 const timings = [
   // from, duration, emoji, highlight?, unstoppable?
@@ -23,7 +23,7 @@ const timings = [
 let emoji = ''
 timings.forEach(([from, duration, e, highlight, unstoppable]) => {
   if (!unstoppable && ACT_OVER /* && now < ACT_OVER + duration */) { return }
-  if (now > from && now < from+duration) {
+  if (now >= from && now < from+duration) {
       emoji += e
     if (highlight && (unstoppable || !ACT_OVER /* || now > ACT_OVER + duration */)) {
       // unstoppable & stoppable + not-stopped
