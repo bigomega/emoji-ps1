@@ -4,8 +4,8 @@ const fun_list = "👾,🍀,🥑,⛰️ ,🪂,🍺,👨🏻‍🌾,🐢,🐼,�
 const activity_list = '🎨,🦮,📚,✍️ ,🎸,🛹,🏃🏻‍♂️'.split(',')
 const getRandom = arr => arr[arr.length * Math.random() | 0]
 const date = new Date()
-const now = +`${date.getHours()}${date.getMinutes()<10?'0':''}${date.getMinutes()}`
-// now=540
+// const now = +`${date.getHours()}${date.getMinutes()<10?'0':''}${date.getMinutes()}`
+now=1300
 
 const timings = [
   // from, duration, emoji, highlight?, unstoppable?
