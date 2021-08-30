@@ -1,35 +1,3 @@
-# arr=(👾 💻 🍀 🥑 🦮 ⛰️ 🪂 🍺 🎨 🏃🏻‍♂️ 👨🏻‍🌾 🐢 🐼 🐙 🐳 🐓 🪵 🍄 🔥 🌪 🍁 🐚 🌊 🍉 🥝 🍋)
-# function _emoji() {
-#   day=$(date +%u)
-#   time=$(date +%H%M)
-#   second=$(date +%S)
-#   echo $time
-#   # SHOULD SLEEP
-#   if (( $time > 2230 )); then
-#     echo -n 🥱
-#   elif (( $time > 2100 )); then
-#     echo -n 
-#   elif (( $time < 500 )); then
-#     echo -n 🛌
-#   fi
-#   # if (( $hour > 30 )) ; then 
-#   #     echo $RANDOM
-#   #     echo -n $(date +%S)
-#   # else
-#   #     echo $RANDOM
-#   #     echo -n "zzz"
-#   # fi
-#   # echo ${arr[RANDOM%${#arr[@]} + 1]}
-#   # echo -n ${arr[RANDOM%${#arr[@]} + 1]}
-#   return 0
-# }
-# for loop in $(seq 1 1000); do echo ${arr[RANDOM%${#arr[@]} + 1]};done | sort | uniq -c
-
-# PROMPT="%(?:%{$fg_bold[green]%}${arr[RANDOM%${#arr[@]} + 1]} :%{$fg_bold[red]%}➜ )"
-# PROMPT="%(?:%{$fg_bold[green]%}\$(_emoji)[\$(date +%S)] :%{$fg_bold[red]%}➜ )"
-# sh /Users/bigomega/.nvm/versions/node/v16.6.0/bin/node ./emoji.js
-# emoji=$(/Users/bigomega/.nvm/versions/node/v16.6.0/bin/node ./emoji.js)
-# PROMT+="\$(nvm use 16.6 > /dev/null 2>&1)"
 # Emoji
 EMOJI="%{$fg_bold[white]%}\$(node $HOME/.oh-my-zsh/custom/themes/emoji.js)"
 PROMPT="%(?:%{$fg_bold[green]%}➜"$EMOJI":%{$fg_bold[red]%}➜"$EMOJI")"
@@ -55,7 +23,7 @@ psanimate_stop() {
   touch /tmp/psanimatepid-$$
   PID=`cat /tmp/psanimatepid-$$`
   if [[ ! -z "$PID" ]]
-    then 
+    then
     kill $PID > /dev/null 2>&1
     rm /tmp/psanimatepid-$$
   fi
