@@ -1,10 +1,19 @@
 # Emoji PS1 💻
 ![Kapture 2021-08-30 at 20 10 05](https://user-images.githubusercontent.com/2320747/131357413-7e8921de-e70c-4a27-84af-cb74e943aad3.gif)
 
-1. [Installation](#Installation)
-2. [Features & Customization](#Features & Customization)
+**Table of Contents**
+- [Emoji PS1 💻](#emoji-ps1-)
+  - [:package: Installation](#package-installation)
+    - [> <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> With OhMyZsh](#--with-ohmyzsh)
+    - [> <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> Without OhMyZsh](#--without-ohmyzsh)
+  - [:drum: Features & Customization :hammer_and_wrench:](#drum-features--customization-hammer_and_wrench)
+    - [> :spiral_calendar: Schedule](#-spiral_calendar-schedule)
+    - [> 🎮 Animation](#--animation)
+    - [> ✅ Actover](#--actover)
+  - [🍻 Contribution & Request](#-contribution--request)
+  - [🎫 License](#-license)
 
-## :package: Installation 
+## :package: Installation
 ```sh
 # Clone the repo
 git clone git@github.com:bigomega/emoji-ps1.git
@@ -13,13 +22,13 @@ cd emoji-ps1
 `cd`-ing into the repo is inmportant because we'll be using `$PWD`
 ### > <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> With OhMyZsh
 This is written on top of the [robbyrussell](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell)(default) theme.
-```sh 
+```sh
 # Link it to the custom themes folder
 ln -s $PWD/emoji.js $HOME/.oh-my-zsh/custom/themes/emoji.js
 ln -s $PWD/emoji.zsh-theme  $HOME/.oh-my-zsh/custom/themes/emoji.zsh-theme
 ```
 Set the theme in `~/.zshrc` file
-```sh 
+```sh
 ZSH_THEME="emoji"
 ```
 ### > <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> Without OhMyZsh
@@ -32,7 +41,7 @@ For animations, copy the [`psanimate` and `psanimate_stop` functions](https://gi
 > If you face issues with node, install/update node to the latest stable version. This was developed on `v16.6.0`
 
 ## :drum: Features & Customization :hammer_and_wrench:
-### > :spiral_calendar: Schedule 
+### > :spiral_calendar: Schedule
 The `emoji.js` file contains the logic behind the what emoji to show and when.
 There's a Schedule for the emoji which you can/should change [here](https://github.com/bigomega/emoji-ps1/blob/33a1318e95cbcffa64757144849a46043409a79a/emoji.js#L10-L21).
 ```js
@@ -51,8 +60,8 @@ You can/should edit these two lists as well depending your interests, likes and 
 const fun_list = "👾,🍀,🥑,⛰️ ,🪂,🍺,👨🏻‍🌾,🐢,🐼,🐙,🐳,🐓,🪵 ,🍄,🔥,🌪 ,🍁,🐚,🌊,🍉,🥝,🍋".split(',')
 const activity_list = '🎨,🦮,📚,✍️ ,🎸,🛹,🏃🏻‍♂️'.split(',')
 ```
-### > 🎮 Animation 
-All of these could be animated. You can start the animation with the command (bash function) `psanimate <interval-in-seconds>`, defaults to 1 second. Animate calls the emoji function in the given interval with a rotating SWITCH boolean. 
+### > 🎮 Animation
+All of these could be animated. You can start the animation with the command (bash function) `psanimate <interval-in-seconds>`, defaults to 1 second. Animate calls the emoji function in the given interval with a rotating SWITCH boolean.
 ![Kapture 2021-08-30 at 22 05 28](https://user-images.githubusercontent.com/2320747/131373246-d075b3fe-1ba5-4409-932c-15bc4e3a0847.gif)
 
 The following is dinner-time highighted emoji with `psanimate .2`
