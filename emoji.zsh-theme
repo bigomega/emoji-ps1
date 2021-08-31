@@ -24,9 +24,9 @@ psanimate_stop() {
   PID=`cat /tmp/psanimatepid-$$`
   if [[ ! -z "$PID" ]]
     then
-    kill $PID > /dev/null 2>&1
-    rm /tmp/psanimatepid-$$
+    (kill $PID > /dev/null 2>&1)
   fi
+  rm /tmp/psanimatepid-$$
 }
 echo "" > /tmp/psanimatesleep
 psanimate() {
@@ -48,5 +48,12 @@ psanimate() {
     done
   }
   (_ps_emoji_animation & ; echo "$!" > /tmp/psanimatepid-$$)
-  # (_ps_emoji_animation &)
 }
+
+function pscleanup {
+  echo "Cleaning the /tmp/psanimatepid-$$"
+  psanimate_stop
+  unset ACT_OVER
+}
+
+trap pscleanup EXIT
