@@ -2,7 +2,7 @@
 ![Kapture 2021-08-30 at 20 10 05](https://user-images.githubusercontent.com/2320747/131357413-7e8921de-e70c-4a27-84af-cb74e943aad3.gif)
 
 **Table of Contents**
-- [Emoji PS1 💻](#emoji-ps1-)
+- [Emoji Command Prompt 💻](#emoji-command-prompt-)
   - [:package: Installation](#package-installation)
     - [> <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> With OhMyZsh](#--with-ohmyzsh)
     - [> <img src="https://user-images.githubusercontent.com/2320747/131363393-c2f28fdf-7675-49f2-bc8a-42b62936a877.png" width="20px"/> Without OhMyZsh](#--without-ohmyzsh)
