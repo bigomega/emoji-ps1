@@ -72,13 +72,13 @@ The following is dinner-time highighted emoji with `psanimate .2`
 ![Kapture 2021-08-30 at 21 58 12](https://user-images.githubusercontent.com/2320747/131372343-7e7d6060-a96f-4d1f-8adb-d66ea5c63168.gif)
 > Animation runs as a background process, stores the pid in `/tmp/psanimatepid-$$`.
 ### 🦾 Automating animations
-This is disabled by default since automated animations could be very much annoying. But you can enable it by setting the `PS_AUTO_ANIMATE` variable. The schedule and check-interval is in the function right below the variable. By default it checks every 30 minutes and animates the sleep time.
+This is disabled by default since automated animations could be very much annoying. But you can enable it by setting the `PS_AUTO_ANIMATE` variable. The schedule and check-interval is in the function right below the variable. By default it checks every 30 minutes and animates during sleep time.
 ```bash
 PS_AUTO_ANIMATE=1
 ```
 ### ✅ Finishing tasks
 Certain activity emojis like food can be overridden (when it's over). This can be done with the command `pstaskover`. This [sets the env](https://github.com/bigomega/emoji-ps1/blob/33a1318e95cbcffa64757144849a46043409a79a/emoji.zsh-theme#L12) variable `PS_TASK_OVER` and so an emoji from the `fun_list` is picked up after.
-![Kapture 2021-08-30 at 22 14 52](https://user-images.githubusercontent.com/2320747/131374525-24f38c72-c244-4b49-81f5-a52120cf5412.gif)
+![Kapture 2021-09-03 at 12 29 52](https://user-images.githubusercontent.com/2320747/131964014-d717b0ae-c1f9-4b88-88b2-8d6780c85ef6.gif)
 > The PS_TASK_OVER resets after an hour. It uses bash traps.
 ## 🍻 Contribution & Request
 If you find this idea interesting or if you can imagine beautiful ideas, please send a PR or raise a request for it. Thanks 🙏
