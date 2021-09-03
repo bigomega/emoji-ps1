@@ -1,6 +1,6 @@
 const ANIMATE_SWITCH = process.argv[2] || 0
-const ACT_OVER = +process.env['ACT_OVER'] || NaN
-const fun_list = "👾,🍀,🥑,⛰️ ,🪂,🍺,👨🏻‍🌾,🐢,🐼,🐙,🐳,🐓,🪵 ,🍄,🔥,🌪 ,🍁,🐚,🌊,🍉,🥝,🍋".split(',')
+const PS_TASK_OVER = +process.env['PS_TASK_OVER'] || NaN
+const fun_list = "👻,👾,🎃,💋,👁 ,🥷 ,🧶,🧵,👑,🐰,🦊,🐼,🐨,🐷,🐸,🦋,🐌,🐢,🐙,🦀,🐡,🐠,🐳,🐿 ,🦢,🪵 ,🌵,🍀,🍁,🍄,🌸,🌼,🌏,🔥,☂️ ,🌊,❄️ ,🍋,🍌,🍉,🍓,🍒,🥥,🥝,🥑,🌶 ,🧀,🍿,🍺,⚽️,🏀,🏐,🥊,🎹,🥁,🏖 ,🏔 ,⛺️,💻,💿,☎️ ,📟,⏳,🔋,🧲,🔮,🪣 ,📦,❤️ ,🧡,💛,💚,💙,💜,🖤,🤍,🤎,🇮🇳 ".split(',')
 const activity_list = '🎨,🦮,📚,✍️ ,🎸,🛹,🏃🏻‍♂️'.split(',')
 const getRandom = arr => arr[arr.length * Math.random() | 0]
 const date = new Date()
@@ -16,16 +16,17 @@ const timings = [
   [1600, 100, getRandom(activity_list)],
   [1700, 130, getRandom(activity_list), true, true],
   [1900, 200, '🍕', true],
-  [2130, 200, getRandom(['🥱', '😴']), false, true],
-  [2300, 100, '🛌', false, true]
+  [2130, 100, getRandom(['🥱', '😴']), false],
+  [2230, 100, getRandom(['🥱', '😴']), false, true],
+  [2300, 100, '🛌', false, true],
 ]
 
 let emoji = ''
 timings.forEach(([from, duration, e, highlight, unstoppable]) => {
-  if (!unstoppable && ACT_OVER /* && now < ACT_OVER + duration */) { return }
+  if (!unstoppable && PS_TASK_OVER /* && now < PS_TASK_OVER + duration */) { return }
   if (now >= from && now < from+duration) {
       emoji += e
-    if (highlight && (unstoppable || !ACT_OVER /* || now > ACT_OVER + duration */)) {
+    if (highlight && (unstoppable || !PS_TASK_OVER /* || now > PS_TASK_OVER + duration */)) {
       // unstoppable & stoppable + not-stopped
       emoji += +ANIMATE_SWITCH ? `⬅ ` : ` ⬅`
     }
@@ -34,16 +35,4 @@ timings.forEach(([from, duration, e, highlight, unstoppable]) => {
 if (emoji.length === 0) { emoji = getRandom(fun_list) }
 
 console.log(`${emoji}`)
-
 // process.exit()
-
-/*
-    8-10 🥪 ⬅
-    12-2 🍛 ⬅
-    6-8 🎨🦮📚✍🏻🎸🛹🏃🏻‍♂️
-    7-9 🍕 ⬅
-    10-12 🥱
-    11-5 🛌 ⬅
-    rest emoji_list
-    👨🏻‍💻💻🖥
-*/

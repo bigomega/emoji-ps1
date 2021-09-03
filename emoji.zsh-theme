@@ -8,15 +8,16 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-function actover {
-  export ACT_OVER="$(date +%H%M)"
-  trap 'unset ACT_OVER' SIGUSR1
+function pstaskover {
+  export PS_TASK_OVER="$(date +%H%M)"
+  trap 'unset PS_TASK_OVER' SIGUSR1
   p=$$
   ( sleep 3600; kill -SIGUSR1 $p ) &
-  # echo "export ACT_OVER=""" | at now + 1 hour
-  touch /tmp/psanimatepid-$$
-  [ ! -z `cat /tmp/psanimatepid-$$` ] && psanimate `cat /tmp/psanimatesleep`
-  # psanimate_stop
+  # echo "export PS_TASK_OVER=""" | at now + 1 hour
+  # touch /tmp/psanimatepid-$$
+  # [ ! -z `cat /tmp/psanimatepid-$$` ] && psanimate `cat /tmp/psanimatesleep`
+  psanimate_stop
+  return 0
 }
 
 psanimate_stop() {
@@ -27,6 +28,7 @@ psanimate_stop() {
     (kill $PID > /dev/null 2>&1)
   fi
   rm /tmp/psanimatepid-$$
+  return 0
 }
 echo "" > /tmp/psanimatesleep
 psanimate() {
@@ -48,12 +50,41 @@ psanimate() {
     done
   }
   (_ps_emoji_animation & ; echo "$!" > /tmp/psanimatepid-$$)
+  return 0
 }
 
+PS_AUTO_ANIMATE=0
+(
+  function _psautoanimator {
+    while [ : ]
+    do
+      time=$(date +%H%M)
+      if (( $time > 2300 )); then
+        psanimate .3
+      elif (( $time < 500 )); then
+        psanimate .1
+      fi
+      sleep 1800
+    done
+  }
+  if [[ $PS_AUTO_ANIMATE == 1 ]];then
+    _psautoanimator & ; echo "$!" > /tmp/psautoanimator-$$
+  fi
+)
+
 function pscleanup {
-  echo "Cleaning the /tmp/psanimatepid-$$"
+  echo "Cleaning the animation stuff"
   psanimate_stop
-  unset ACT_OVER
+  unset PS_TASK_OVER
+
+  # _psautoanimator_kill
+  touch /tmp/psautoanimator-$$
+  PID=`cat /tmp/psautoanimator-$$`
+  if [[ ! -z "$PID" ]]
+    then
+    (kill $PID > /dev/null 2>&1)
+  fi
+  rm /tmp/psautoanimator-$$
 }
 
 trap pscleanup EXIT
