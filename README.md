@@ -1,5 +1,6 @@
 # Emoji Command Prompt 💻
 ![Kapture 2021-08-30 at 20 10 05](https://user-images.githubusercontent.com/2320747/131357413-7e8921de-e70c-4a27-84af-cb74e943aad3.gif)
+> ### [Blog post](https://bigomega.medium.com/adding-emojis-to-your-command-prompt-and-animate-it-7884355fd54d)
 
 **Table of Contents**
 - [Emoji Command Prompt 💻](#emoji-command-prompt-)
